@@ -1,8 +1,10 @@
 // client/src/api.js
 import axios from 'axios';
 
+// The frontend expects the API base URL to include the `/api` prefix so calls
+// like `API.get('/rooms')` map to `http://host:port/api/rooms` on the server.
 const API = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'chat-q6p0pg07g-nitins-projects-a2f51245.vercel.app'
+  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5000/api'
 });
 
 export function setAuthToken(token) {

@@ -5,6 +5,7 @@ let socket = null;
 
 export function connectSocket(token) {
   if (socket && socket.connected) return socket;
+  // socket URL should point to the server root (no `/api` prefix) where socket.io is listening
   socket = io(process.env.REACT_APP_SOCKET_URL || 'http://localhost:5000', {
     auth: { token }
   });
